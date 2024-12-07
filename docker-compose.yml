@@ -13,7 +13,7 @@ services:
       MYSQL_PASSWORD: 5xzDZ00
       MYSQL_DATABASE: db-my-ecomerce
     networks:
-      - my-ecomerce-net
+      - my-ecomerce-net 
 
   my-ecomerce-db:
     build: .
