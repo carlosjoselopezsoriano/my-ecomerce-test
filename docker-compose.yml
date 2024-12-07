@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  my-ecomerce-front:
+    build: .
+    image: karlostcp/my-ecomerce-front:v1.0.1
+    container_name: my-ecomerce-front-container
+    ports:
+      - "8080:80"
+    networks:
+      - my-ecomerce-net
+
+  my-ecomerce-db:
+    build: .
+    image: karlostcp/my-ecomerce-db:v1.1.1
+    container_name: my-ecomerce-db-container
+    ports:
+      - "3306:3306"
+    networks:
+      - my-ecomerce-net
+    volumes:
+      - mi-volumen-datos:/var/lib/mysql
+
+networks:
+  my-ecomerce-net:
+    driver: bridge
+
+volumes:
+  mi-volumen-datos:
